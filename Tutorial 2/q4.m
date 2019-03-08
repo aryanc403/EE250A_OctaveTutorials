@@ -1,0 +1,13 @@
+clc;close all;clear all;
+s=tf('s');
+omega=10;
+zeta=0.6;
+g=1/(s^2+2*zeta*omega*s+omega^2);
+step(g);
+w=omega*(1-zeta^2)^.5;
+t_p=pi/w;
+y=max(step(g));
+text(t_p,y,'Peak Time');
+xlabel('t');
+ylabel('y');
+grid on;
